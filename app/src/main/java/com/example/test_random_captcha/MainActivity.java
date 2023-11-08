@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] tapOrder = {1, 2, 3};
     private int currentTapIndex = 0;
 
-    private int[] imageIds = {R.drawable.circle, R.drawable.rectangle, R.drawable.triangle};
+    private int[] imageIds = {R.drawable.circle, R.drawable.rectangle, R.drawable.triangle, R.drawable.diamond};
     private Random random = new Random();
 
     TextView  guidanceTextView;

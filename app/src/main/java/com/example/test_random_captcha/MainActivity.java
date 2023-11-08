@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView image3;
     private int[] tapOrder = {1, 2, 3};
     private int currentTapIndex = 0;
+    private TextView position1, position2, position3;
 
     private int[] imageIds = {R.drawable.circle, R.drawable.rectangle, R.drawable.triangle, R.drawable.diamond};
     private Random random = new Random();
@@ -46,12 +47,25 @@ public class MainActivity extends AppCompatActivity {
         image3 = findViewById(R.id.image3);
         guidanceTextView = findViewById(R.id.guidanceTextView);
 
+        position1 = findViewById(R.id.position1);
+        position2 = findViewById(R.id.position2);
+        position3 = findViewById(R.id.position3);
+
         shuffleImages();
+//        shufflePosition();
+
+        Integer [] arr = {1, 2, 3};
+        List<Integer> listPosition = Arrays.asList(arr);
+        Collections.shuffle(listPosition);
+
+        position1.setText(listPosition.get(0).toString());
+        position2.setText(listPosition.get(1).toString());
+        position3.setText(listPosition.get(2).toString());
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleImageClick(1);
+                handleImageClick(listPosition.get(0));
                 v.setVisibility(View.INVISIBLE);
             }
         });
@@ -59,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleImageClick(2);
+                handleImageClick(listPosition.get(1));
                 v.setVisibility(View.INVISIBLE);
             }
         });
@@ -67,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleImageClick(3);
+                handleImageClick(listPosition.get(2));
                 v.setVisibility(View.INVISIBLE);
             }
         });
@@ -98,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void shuffleImages() {
-        List<Integer> imageOrder = Arrays.asList(0, 1, 2);
+        List<Integer> imageOrder = Arrays.asList(0, 1, 2, 3);
         Collections.shuffle(imageOrder);
 
         image1.setImageResource(imageIds[imageOrder.get(0)]);
@@ -145,7 +159,15 @@ public class MainActivity extends AppCompatActivity {
         image1.setVisibility(View.VISIBLE);
         image2.setVisibility(View.VISIBLE);
         image3.setVisibility(View.VISIBLE);
-
-        Log.d("Debug", "resetPage() has been called"); //Thêm dòng này để kiểm tra
     }
+
+//    private void shufflePosition() {
+//        Integer [] arr = {1, 2, 3};
+//        List<Integer> listPosition = Arrays.asList(arr);
+//        Collections.shuffle(listPosition);
+//
+//        position1.setText(listPosition.get(0).toString());
+//        position2.setText(listPosition.get(1).toString());
+//        position3.setText(listPosition.get(2).toString());
+//    }
 }

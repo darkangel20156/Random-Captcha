@@ -32,6 +32,7 @@
         android:layout_marginTop="30dp" />
 
     <TextView
+        android:id="@+id/position1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/image1"
@@ -52,6 +53,7 @@
         android:layout_below="@id/image3"/>
 
     <TextView
+        android:id="@+id/position2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/image2"
@@ -74,6 +76,7 @@
         android:layout_below="@id/guidanceTextView" />
 
     <TextView
+        android:id="@+id/position3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/image3"
